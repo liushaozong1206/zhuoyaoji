@@ -1,0 +1,249 @@
+/*----------import module----------*/
+@import "../../libs/scss/bourbon/bourbon";
+@import "../../libs/scss/normalize";
+@import "../../libs/scss/public";
+
+/*----------my style----------*/
+.zxt_headerbox{
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  top:0;
+}
+#footer{
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  bottom:0;
+}
+
+#box {
+  font-family: 微软雅黑;
+  transition: all 1000ms cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition: all 1000ms cubic-bezier(0.86, 0, 0.07, 1);
+  .index-box{
+    position: relative;
+    width: 1440px;
+    margin:0 auto;
+    z-index: 10;
+    top: 75px;
+    .index-logo .p1{
+      position: absolute;
+      left: 165px;
+    }
+    .index-logo .p2{
+      position: absolute;
+      left: 275px;
+    }
+    .box-nav{
+      position: absolute;
+      width: 370px;
+      right: 240px;
+      p{
+        float: left;
+        margin: 0 9px;
+        a{
+          display: block;
+          width: 100px;
+          height: 32px;
+          background: url("../public/img/z1.png") no-repeat;
+          color: #534447;
+          font-size: 16px;
+          line-height: 32px;
+          text-align: center;
+        }
+      }
+      p a:hover{
+        background: url("../public/img/z01.png") no-repeat;
+      }
+      .bob-wx{
+        position: absolute;
+        width: 111px;
+        height: 111px;
+        padding:10px;
+        top: 40px;
+        left: 113px;
+        background: #fff;
+        display: none;
+        img{
+          width: 111px;
+          height: 111px;
+          margin: 0 auto;
+        }
+      }
+    }
+    .index-right{
+      position: absolute;
+      width: 125px;
+      height: 512px;
+      top: -16px;
+      left: 25px;
+
+      background: url("../public/img/z13.png") no-repeat;
+      .z-logo{
+        position: absolute;
+        left: 5px;
+        top: 40px;
+      }
+      ul{
+        position: absolute;
+        top: 512px;
+        left: 27px;
+        li{
+          width: 70px;
+          height: 70px;
+          background:url("../public/img/z14.png") no-repeat;
+          a{
+            display: block;
+            width: 70px;
+            height: 70px;
+          }
+        }
+        .page1{
+          background-position: 0 0;
+        }
+        .page2{
+          background-position: 0px -70px;
+        }
+        .page3{
+          background-position: 0 -140px;
+        }
+        .page1 a:hover,.page1.active{
+          background:url("../public/img/z14.png") no-repeat;
+          background-position: -74px 0;
+        }
+        .page2 a:hover,.page2.active{
+          background:url("../public/img/z14.png") no-repeat;
+          background-position: -74px -70px;
+        }
+        .page3 a:hover,.page3.active{
+          background:url("../public/img/z14.png") no-repeat;
+          background-position: -74px -140px;
+        }
+      }
+    }
+  }
+  .index-bottom{
+    position: absolute;
+    width: 100%;
+    height: 137px;
+    bottom:0;
+    background-color:rgba(121,87,76,0.5);
+    z-index: 100;
+    .bottom-box{
+      width: 1150px;
+      margin: 0 auto;
+      position: relative;
+      .n-01{
+        width: 150px;
+        height: 160px;
+        margin-top: -40px;
+        float: left;
+        .btn {
+          width: 129px;
+          height: 138px;
+          background: url("../public/img/p_btn.png")no-repeat;
+          cursor: pointer;
+        }
+        .number{
+          line-height: 35px;
+          font-size: 14px;
+          color: #2d0d05;
+          span{
+            padding-left: 5px;
+          }
+        }
+      }
+      .n-box1,.n-box2,.n-box3,.n-box4,.n-box5,.n-box6{
+        width: 130px;
+        float: left;
+        margin-left: 30px;
+        .a-box1,.a-box2,.a-box3,.a-box4,.a-box5,.a-box6{
+          width: 117px;
+          height: 93px;
+          background: url("../public/img/box1.png") 4px no-repeat;
+          margin-top: -30px;
+        }
+        .a-box2{
+          background: url("../public/img/box2.png") 4px no-repeat;
+        }
+        .a-box3{
+          background: url("../public/img/box3.png") 4px no-repeat;
+        }
+        .a-box4{
+          background: url("../public/img/box4.png") 4px no-repeat;
+        }
+        .a-box5{
+          background: url("../public/img/box5.png") 4px no-repeat;
+        }
+        .a-box6{
+          background: url("../public/img/box6.png") 4px no-repeat;
+        }
+        .a-box1.on{
+          background: url("../public/img/box01.png") 4px no-repeat;
+        }
+        .a-box2.on{
+          background: url("../public/img/box02.png") 4px no-repeat;
+        }
+        .a-box3.on{
+          background: url("../public/img/box03.png") 4px no-repeat;
+        }
+        .a-box4.on{
+          background: url("../public/img/box04.png") 4px no-repeat;
+        }
+        .a-box5.on{
+          background: url("../public/img/box05.png") 4px no-repeat;
+        }
+        .a-box6.on{
+          background: url("../public/img/box06.png") 4px no-repeat;
+        }
+        .b-box1,.b-box2,.b-box3,.b-box4,.b-box5,.b-box6{
+          position: relative;
+          width: 123px;
+          height: 60px;
+          margin-top: 8px;
+          background: url("../public/img/p01.png") no-repeat;
+          span{
+            position: absolute;
+            left: -19px;
+            height: 40px;
+            top: 10px;
+            border-left: 1px #734c3e dotted;
+          }
+        }
+        .b-box6{
+          width: 143px;
+        }
+        .b-box2{
+          background: url("../public/img/p02.png") no-repeat;
+        }
+        .b-box3{
+          background: url("../public/img/p03.png") no-repeat;
+        }
+        .b-box4{
+          background: url("../public/img/p04.png") no-repeat;
+        }
+        .b-box5{
+          background: url("../public/img/p05.png") no-repeat;
+        }
+        .b-box6{
+          background: url("../public/img/p06.png") no-repeat;
+        }
+      }
+    }
+  }
+}
+#box.top {
+  height: 60px;
+  width: 100%;
+  transform: translate3d(0px, 60px, 0px);
+  -webkit-transform: translate3d(0px, 60px, 0px);
+}
+#box.bottom {
+  height: 130px;
+  width: 100%;
+  transform: translate3d(0px, -130px, 0px);
+  -webkit-transform: translate3d(0px, -130px, 0px);
+}
+
+

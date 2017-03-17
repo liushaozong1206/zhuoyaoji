@@ -1,0 +1,90 @@
+/*----------import module----------*/
+@import "../../../libs/scss/bourbon/bourbon";
+@import "../../../libs/scss/normalize";
+@import "../../../libs/scss/public";
+
+/*----------my style----------*/
+
+#two{
+  width: 100%;
+  height: 100%;
+  background: url("./img/two-bg.jpg") no-repeat;
+  .two-box{
+    width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    .zhou{
+      position: absolute;
+      width: 1040px;
+      height: 755px;
+      background: url("./img/zhou.png") no-repeat;
+      left: 50%;
+      top: 65px;
+      margin-left: -520px;
+      .slogan{
+        position: absolute;
+        left: 165px;
+        top: 20px;
+        width: 299px;
+        height: 77px;
+      }
+      .zhou-tab{
+        width: 710px;
+        height: 430px;
+        position: relative;
+        left: 50%;
+        margin-left: -330px;
+        top: 185px;
+        .tab{
+          width: 710px;
+          height: 430px;
+          overflow: hidden;
+          .left{
+            float: left;
+            width: 330px;
+            height: 430px;
+          }
+          .cont{
+            float: right;
+            width: 330px;
+            height: 430px;
+            p{
+              font-size: 16px;
+              color: #252525;
+              line-height: 22px;
+              padding-bottom: 20px;
+            }
+          }
+        }
+      }
+    }
+
+
+    .pageNext{
+      position: absolute;
+      width: 75px;
+      height: 54px;
+      left: 50%;
+      margin-right: -37px;
+      bottom: 210px;
+      @include animation(flash 2s ease-in infinite);
+    }
+
+  }
+
+
+
+}
+
+@include keyframes(flash){
+  0%{
+    @include transform(translateY(0px));
+    opacity: 0.5;
+  }
+  100%{
+    @include transform(translateY(80px));
+    opacity: 1;
+  }
+}
+
