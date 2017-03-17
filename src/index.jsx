@@ -8,12 +8,14 @@ import "./public/public.scss";
 
 import One from "./components/one/one";
 import Two from "./components/two/two";
+import Three from "./components/three/three";
 
 import logo1 from './public/img/logo.png';
 import logo2 from './public/img/logo2.png';
 import zLogo from './public/img/z-logo.png';
 import wxT from './public/img/z10.jpg';
-
+import rLogo from './public/img/z9.png';
+import rEwm from './public/img/z10.jpg';
 
 
 import {proxyUrl,isMobile} from "./public/public";
@@ -25,11 +27,13 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            Aa: 'aaaaaaaaaaa'
+            off: ''
         };
-
+		this.handleClose = this.handleClose.bind(this);
     }
-
+	handleClose(){
+		this.setState({off:'off'})
+	}
     componentDidMount() {
         //判断是否手机
         isMobile();
@@ -132,6 +136,17 @@ class App extends Component {
 				        </ul>
 			        </div>
 		        </div>
+		        <div className={"tab-right"+' '+this.state.off}>
+					<p className="logo"><img src={rLogo} alt=""/></p>
+			        <p className="close" onClick={this.handleClose}></p>
+			        <p className="ewm">
+				        <img src={rEwm} alt=""/>
+				        <span>扫一扫关注微信<br/>了解游戏新动态</span>
+			        </p>
+			        <p className="btn">
+				        <a href="##"></a>
+			        </p>
+		        </div>
 		        <div className="index-bottom">
 			        <div className="bottom-box">
 				        <div className="n-01">
@@ -180,10 +195,8 @@ class App extends Component {
 			        <div>
 				        <div className="section"><One/></div>
 				        <div className="section"><Two/></div>
-				        <div className="section">
-					        <h3>第三屏</h3>
-				        </div>
-			        </div>
+				        <div className="section"><Three/></div>
+	  		        </div>
 			        <div></div>
 		        </div>
 	        </div>

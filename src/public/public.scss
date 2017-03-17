@@ -232,6 +232,65 @@
       }
     }
   }
+  .tab-right{
+    position: absolute;
+    right: 0;
+    top: 165px;
+    width: 163px;
+    height: 311px;
+    z-index: 100;
+    background: url("../public/img/z12.png") no-repeat;
+    .logo{
+      position: absolute;
+      top: -40px;
+      right: 40px;
+      width: 90px;
+      height: 90px;
+    }
+    .close{
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+    }
+    .ewm{
+      position: absolute;
+      top: 65px;
+      left: 24px;
+      width: 111px;
+      font-size: 14px;
+      color: #201d1e;
+      text-align: center;
+      line-height: 18px;
+      span{
+        display: inline-block;
+        margin-top: 10px;
+      }
+    }
+    .btn{
+      position: absolute;
+      width: 113px;
+      height: 36px;
+      bottom: 35px;
+      left:24px;
+      a{
+        display: block;
+        width: 113px;
+        height: 36px;
+        background: url("../public/img/z11.png") 0 no-repeat;
+        background-position: 0 0;
+        &:hover{
+          background: url("../public/img/z11.png") no-repeat;
+          background-position: 0 -44px;
+        }
+      }
+    }
+  }
+  .tab-right.off{
+    @include animation(zoomOutRight 0.6s ease-in  both);
+  }
 }
 #box.top {
   height: 60px;
@@ -247,3 +306,18 @@
 }
 
 
+@include keyframes (zoomOutRight) {
+  40% {
+    opacity: 1;
+    -webkit-transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);
+    transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: scale(.1) translate3d(2000px, 0, 0);
+    transform: scale(.1) translate3d(2000px, 0, 0);
+    -webkit-transform-origin: right center;
+    transform-origin: right center;
+  }
+}

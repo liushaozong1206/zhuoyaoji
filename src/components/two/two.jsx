@@ -1,7 +1,7 @@
 /**
  * 作者：刘少宗
  * 时间：2017/3/16
- * 描述：捉妖记第一屏
+ * 描述：捉妖记第二屏
  */
 
 
@@ -13,7 +13,7 @@ import './two.scss';
 import pageNext from './img/z15.png';
 import twoSlogan from './img/two02.png';
 import tLeft01 from './img/t-left01.png';
-
+import animal from './img/two01.png';
 
 
 
@@ -36,45 +36,57 @@ var tabJson = [
 class Two extends Component{
 	constructor(){
 		super();
-		
+		this.state={
+			active:0
+		};
+		this.handleTab = this.handleTab.bind(this);
 	}
+	handleTab(e){
+		this.setState({active:e.target.getAttribute('data-id')});
+	}
+	
 	componentDidMount(){
 		//$('#one').parallax();
 	}
 	render(){
+		var This = this;
 		return(
-			<div data-mode="cursor" id="two" >
+			<div id="two" >
 				<div className="two-box">
 					<div className="zhou">
 						<div className="slogan"><img src={twoSlogan} alt=""/></div>
 						<div className="zhou-tab">
 							<div className="tab">
+								<div className="left-btn" onClick={this.tabClick}></div>
+								<div className="right-btn"></div>
 								{
 									tabJson.map(function(e,i){
+										var active = i==This.state.active ? 'active':'';
 										return(
-											<div className={"tab"+(i+1)} key={i}>
+											<div className={"tab"+(i+1)+' '+active } key={i}>
 												<div className="left"><img src={e.left} alt=""/></div>
 												<div className="cont"  dangerouslySetInnerHTML={{__html: e.content}} ></div>
 											</div>
 										)
 									})
 								}
-								{/*<div className="tab01">
-									<div className="left"></div>
-									<div className="cont"></div>
-								</div>
-								<div className="tab02">
-									<div className="left"></div>
-									<div className="cont"></div>
-								</div>
-								<div className="tab03">
-									<div className="left"></div>
-									<div className="cont"></div>
-								</div>*/}
+							</div>
+							<div className="tab-btn">
+								{
+									tabJson.map(function(e,i){
+										var active = i == This.state.active ? 'active':'';
+										return(
+											<p className={"list-"+i+' '+active} data-id={i} key={i}
+											   onClick={This.handleTab}></p>
+										)
+									})
+								}
 							</div>
 						</div>
 					</div>
-					
+					<div className="zoo">
+						<div className="animal"><img src={animal} alt=""/></div>
+					</div>
 					
 					
 					<div className="pageNext"><img src={pageNext} alt=""/></div>

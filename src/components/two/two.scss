@@ -22,6 +22,16 @@
       left: 50%;
       top: 65px;
       margin-left: -520px;
+      z-index: 2;
+
+      .animal{
+        position: absolute;
+        width: 181px;
+        height: 191px;
+        right: -70px;
+        z-index: 4;
+        bottom:50px;
+      }
       .slogan{
         position: absolute;
         left: 165px;
@@ -40,6 +50,26 @@
           width: 710px;
           height: 430px;
           overflow: hidden;
+          .left-btn{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            left: -60px;
+            top: 50%;
+            margin-top: -25px;
+            background: url("./img/left.png") no-repeat center;
+            cursor: pointer;
+          }
+          .right-btn{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            right: -60px;
+            top: 50%;
+            margin-top: -25px;
+            background: url("./img/right.png") no-repeat center;
+            cursor: pointer;
+          }
           .left{
             float: left;
             width: 330px;
@@ -57,9 +87,59 @@
             }
           }
         }
+        .tab-btn{
+          position: absolute;
+          top: -128px;
+          right: -40px;
+          width: 315px;
+          height: 104px;
+          .list-0{
+            width: 104px;
+            height: 104px;
+            float: left;
+            cursor: pointer;
+            //background: url("./img/tab01.png") no-repeat;
+          }
+          .list-1{
+            width: 104px;
+            height: 104px;
+            float: left;
+            cursor: pointer;
+            background: url("./img/tab02.png") no-repeat;
+          }
+          .list-2{
+            width: 104px;
+            height: 104px;
+            float: left;
+            cursor: pointer;
+            background: url("./img/tab03.png") no-repeat;
+          }
+          .list-0.active{
+            background: url("./img/tab1.png") no-repeat;
+          }
+          .list-1.active{
+            //background: url("./img/tab2.png") no-repeat;
+          }
+          .list-2.active{
+            //background: url("./img/tab3.png") no-repeat;
+          }
+        }
       }
     }
-
+    .zoo{
+      position: absolute;
+      width: 1040px;
+      height: 755px;
+      left: 50%;
+      top: 65px;
+      margin-left: -520px;
+      .animal{
+        position: absolute;
+        z-index: 1;
+        right: -70px;
+        bottom: 95px;
+      }
+    }
 
     .pageNext{
       position: absolute;
@@ -68,14 +148,22 @@
       left: 50%;
       margin-right: -37px;
       bottom: 210px;
+      z-index: 10;
       @include animation(flash 2s ease-in infinite);
     }
 
   }
-
-
-
 }
+
+.active{
+  .animal{
+    @include animation(bounceInLeft 0.5s ease-in 2s both);
+  }
+  .zhou{
+    @include animation(fadeIn 1.5s ease-in both);
+  }
+}
+
 
 @include keyframes(flash){
   0%{
@@ -87,4 +175,46 @@
     opacity: 1;
   }
 }
+@include keyframes(fadeIn){
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
 
+
+@include keyframes (bounceInLeft) {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-900px, 0, 0);
+    transform: translate3d(-900px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+  }
+
+  to {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
