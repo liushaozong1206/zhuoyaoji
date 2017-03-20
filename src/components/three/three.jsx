@@ -14,21 +14,40 @@ import title from './img/three01.png';
 import tabRight from './img/three03.png';
 import coop from './img/three04.png';
 import coopList from './img/three05.jpg';
+import coopList2 from './img/three06.jpg';
 
-
+let coopImg = [coopList,coopList2,coopList2,coopList,coopList2,coopList2,coopList,coopList,coopList2,coopList2]
 
 class Three extends Component{
 	constructor(){
 		super();
 		this.state={
-			active:0
+			active:0,
+			left:-100
 		};
-		
 	}
 	
+	handleLeft(){
+		var This = this;
+		setInterval(function(){
+			$('.coop-list ul').animate({
+				'left':This.setState({left:This.state.left})
+			},600,function(){
+				var first = $('.coop-list ul').children('li').first().remove();
+				first.appendTo($('.coop-list ul'));
+				$('.coop-list ul').css('left',0)
+			})
+		},3000)
+	}
+	
+	
 	componentDidMount(){
+		this.handleLeft()
 	}
 	render(){
+		
+		let ulW = coopImg.length*100;
+		
 		return(
 			<div id="three" >
 				<div className="three-box">
@@ -57,17 +76,14 @@ class Three extends Component{
 							<div className="coop">
 								<span><img src={coop} alt=""/></span>
 								<div className="coop-list">
-									<ul>
-										<li><img src={coopList} alt=""/></li>
-										<li><img src={coopList} alt=""/></li>
-										<li><img src={coopList} alt=""/></li>
-										<li><img src={coopList} alt=""/></li>
-										<li><img src={coopList} alt=""/></li>
-										<li><img src={coopList} alt=""/></li>
-										<li><img src={coopList} alt=""/></li>
-										<li><img src={coopList} alt=""/></li>
-										<li><img src={coopList} alt=""/></li>
-										<li><img src={coopList} alt=""/></li>
+									<ul style={{'width':ulW,'left':this.state.left}} >
+										{
+											coopImg.map(function(e,i){
+												return(
+													<li key={i}><img src={e} alt=""/></li>
+												)
+											})
+										}
 									</ul>
 								</div>
 							</div>

@@ -139,12 +139,14 @@
             margin-right: 20px;
           }
           .coop-list{
+            position: relative;
             overflow: hidden;
-            width: 590px;
+            width: 600px;
             height: 37px;
             float: left;
             ul{
-              width: 1000px;
+              position: absolute;
+              left: 0;
               li{
                 width: 91px;
                 height: 37px;
