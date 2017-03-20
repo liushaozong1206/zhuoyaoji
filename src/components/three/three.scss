@@ -34,10 +34,133 @@
         width: 1003px;
         height: 422px;
         background: url("./img/three02.png") no-repeat;
-        .tab-three{
+        .three-left{
+          position: absolute;
+          left: 70px;
+          top: 70px;
+          width: 555px;
+          height: 230px;
+          .left-img{
+            width: 160px;
+            height: 230px;
+            background: green;
+            float: left;
+          }
+          .left-cont{
+            width:365px;
+            height: 230px;
+            float: right;
+            .cont-list{
+              li{
+                width:365px;
+                line-height: 30px;
+                a{
+                  display:inline-block;
+                  color: #593731;
+                  font-size: 15px;
+                  line-height: 20px;
+                  width: 290px;
+                  height: 20px;
+                  overflow: hidden;
+                  &:hover{
+                    color: #7d3022;
+                  }
+                }
+                span{
+                  display:inline-block;
+                  color: #593731;
+                  font-size: 12px;
+                  float: right;
+                  line-height: 20px;
+                }
+              }
+            }
+            .page{
+              a{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                font-size: 15px;
+                color: #8a7752;
+                text-align: center;
+                line-height: 20px;
+                margin: 0 5px;
+                vertical-align: bottom;
+                margin-bottom: 3px;
+                .active{
+                  color:#9e6227;
+                  font-weight: bold;
+                  font-size: 16px;
+                }
+              }
+              .home{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: url("./img/home.png") center no-repeat;
+                margin: 0 5px;
+              }
+              .pre{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin: 0 5px;
+                background: url("./img/pre.png") center no-repeat;
+              }
+              .next{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: url("./img/next.png") center no-repeat;
+                margin: 0 5px;
+              }
+              .end{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: url("./img/end.png") center no-repeat;
+                margin: 0 5px;
+               }
+
+            }
+          }
+        }
+        .coop{
+          position: absolute;
+          width: 665px;
+          height: 37px;
+          bottom: 20px;
+          right: 50px;
+          span{
+            display: inline-block;
+            width: 40px;
+            height: 32px;
+            float: left;
+            margin-right: 20px;
+          }
+          .coop-list{
+            overflow: hidden;
+            width: 590px;
+            height: 37px;
+            float: left;
+            ul{
+              width: 1000px;
+              li{
+                width: 91px;
+                height: 37px;
+                margin-right: 9px;
+                float: left;
+              }
+            }
+          }
+
+        }
+        .three-right{
           position: absolute;
           right: 0;
           top: 0;
+          width: 386px;
+          height: 331px;
         }
       }
     }

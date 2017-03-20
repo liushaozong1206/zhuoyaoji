@@ -21,18 +21,31 @@ import rEwm from './public/img/z10.jpg';
 import {proxyUrl,isMobile} from "./public/public";
 
 
-
-
 class App extends Component {
     constructor() {
         super();
         this.state = {
-            off: ''
+            off: '',
+	        pop: ''
         };
 		this.handleClose = this.handleClose.bind(this);
+	    this.handlePopShow = this.handlePopShow.bind(this);
+	    this.handlePopHide = this.handlePopHide.bind(this);
     }
 	handleClose(){
 		this.setState({off:'off'})
+	}
+	handlePopShow(){
+		this.setState({
+			pop:'on',
+			shade:'on'
+		})
+	}
+	handlePopHide(){
+		this.setState({
+			pop:'',
+			shade:''
+		})
 	}
     componentDidMount() {
         //判断是否手机
@@ -113,12 +126,26 @@ class App extends Component {
         return (
 	
 	        <div id="box">
+		
+		        <div className={"shade"+' '+this.state.shade}></div>
+		        <div className={"yuyue-pop"+' '+this.state.pop}>
+			        <div className="close" onClick={this.handlePopHide}></div>
+			        <div className="iphone">
+				        <p className="iph-text">请输入手机号</p>
+				        <p className="ihp-input"><input type="text" defaultValue={''}/></p>
+				        <p className="iph-btn"><a href="javascript:0"></a></p>
+			        </div>
+			        <div className="success">
+				        <p className="cu-text">预约已成功</p>
+				        <p className="cu-btext">感谢您的参与！</p>
+			        </div>
+		        </div>
 		        <div className="index-box">
 			        <div className="index-logo">
 				        <p className="p1"><img src={logo1} alt=""/></p>
 				        <p className="p2"><img src={logo2} alt=""/></p>
 				        <div className="box-nav">
-					        <p className="yuyue"><a href="javascript:0;">立即预约</a></p>
+					        <p className="yuyue" onClick={this.handlePopShow}><a href="javascript:0;">立即预约</a></p>
 					        <p className="wx">
 						        <a href="javascript:0;">关注微信</a>
 						        <span className="bob-wx"><img src={wxT} alt=""/></span>
@@ -150,7 +177,7 @@ class App extends Component {
 		        <div className="index-bottom">
 			        <div className="bottom-box">
 				        <div className="n-01">
-					        <p className="btn"></p>
+					        <p className="btn" onClick={this.handlePopShow}></p>
 					        <p className="number">已预约人数: <span>1234567</span></p>
 				        </div>
 				        <div className="n-box1">

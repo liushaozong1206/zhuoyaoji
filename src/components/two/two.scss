@@ -50,6 +50,13 @@
           width: 710px;
           height: 430px;
           overflow: hidden;
+          .tab-list{
+            display: none;
+          }
+          .tab-list.active{
+            display: block;
+            @include animation(fadeIn 1s ease-in both);
+          }
           .left-btn{
             position: absolute;
             width: 50px;
