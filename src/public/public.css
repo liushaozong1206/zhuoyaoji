@@ -1,0 +1,46 @@
+/*
+Error: Invalid GBK character "\xE5"
+        on line 22 of public.scss
+
+17:     z-index: -1;
+18:     bottom: 0;
+19: }
+20: 
+21: #box {
+22:     font-family: 微软雅黑;
+23:     transition: all 1000ms cubic-bezier(0.86, 0, 0.07, 1);
+24:     -webkit-transition: all 1000ms cubic-bezier(0.86, 0, 0.07, 1);
+25:     .yuyue-pop {
+26:         position: absolute;
+27:         left: 50%;
+
+Backtrace:
+public.scss:22
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/util.rb:1300:in `rescue in block in find_encoding_error'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/util.rb:1297:in `block in find_encoding_error'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/util.rb:1296:in `each'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/util.rb:1296:in `each_with_index'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/util.rb:1296:in `find_encoding_error'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/util.rb:911:in `rescue in check_sass_encoding'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/util.rb:907:in `check_sass_encoding'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/engine.rb:436:in `check_encoding!'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/engine.rb:392:in `_to_tree'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/plugin.rb:82:in `update_stylesheets'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:51:in `process_result'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
+C:/Ruby22/lib/ruby/gems/2.2.0/gems/sass-3.4.22/bin/scss:13:in `<top (required)>'
+C:/Ruby22/bin/scss:23:in `load'
+C:/Ruby22/bin/scss:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid GBK character \"\xE5\"\A         on line 22 of public.scss\A \A 17:     z-index: -1;\A 18:     bottom: 0;\A 19: }\A 20: \A 21: #box {\A 22:     font-family: 微软雅黑;\A 23:     transition: all 1000ms cubic-bezier(0.86, 0, 0.07, 1);\A 24:     -webkit-transition: all 1000ms cubic-bezier(0.86, 0, 0.07, 1);\A 25:     .yuyue-pop {\A 26:         position: absolute;\A 27:         left: 50%;"; }

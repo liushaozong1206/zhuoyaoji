@@ -10,225 +10,384 @@ import One from "./components/one/one";
 import Two from "./components/two/two";
 import Three from "./components/three/three";
 
-import logo1 from './public/img/logo.png';
-import logo2 from './public/img/logo2.png';
-import zLogo from './public/img/z-logo.png';
-import wxT from './public/img/z10.jpg';
-import rLogo from './public/img/z9.png';
-import rEwm from './public/img/z10.jpg';
+import logo1 from "./public/img/logo.png";
+import logo2 from "./public/img/logo2.png";
+import zLogo from "./public/img/z-logo.png";
+import wxT from "./public/img/z10.jpg";
+import rEwm from "./public/img/z10.jpg";
+import rLogo from "./public/img/z9.png";
 
 
-import {proxyUrl,isMobile} from "./public/public";
+import {isMobile} from "./public/public";
 
 
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            off: '',
-	        pop: ''
-        };
+	constructor() {
+		super();
 		this.handleClose = this.handleClose.bind(this);
-	    this.handlePopShow = this.handlePopShow.bind(this);
-	    this.handlePopHide = this.handlePopHide.bind(this);
-    }
-	handleClose(){
-		this.setState({off:'off'})
+		this.handlePopShow = this.handlePopShow.bind(this);
+		this.handlePopHide = this.handlePopHide.bind(this);
+		this.handleList = this.handleList.bind(this);
+		this.phoneNum = this.phoneNum.bind(this);
+		this.state = {
+			off: '',
+			pop: '',
+			popText: '',
+			phone: 'on',
+			success: '',
+			num: 0,
+			aBox: [false, false, false, false, false, false],//打开箱子
+			dataTextList: {}
+		};
 	}
-	handlePopShow(){
-		this.setState({
-			pop:'on',
-			shade:'on'
-		})
-	}
-	handlePopHide(){
-		this.setState({
-			pop:'',
-			shade:''
-		})
-	}
-    componentDidMount() {
-        //判断是否手机
-        isMobile();
-	    
-	    $('#fullpage').fullpage(
-		    {
-			    sectionsColor    :            // 背景色
-				    [
-					    '#fff', '#fff', '#fff', '#fff'
-				    ],
-			    //navigation: true,        // 显示导航
-			    loopBottom: true,        // 顶部轮滚
-			    loopTop: true,        // 顶部轮滚
-			    css3: true,        // 开启CSS3动画
-			    paddingTop:60,
-			    anchors: ['page1', 'page2', 'page3'],
-			    menu: '#menu',
-			    onLeave: function( index, nextIndex, direction )
-			    {
-				    var box = $("#box");
-				
-				    // 顶部
-				    /*if ( index===1 && nextIndex===4 )
-				    {
-					    box.addClass("top");
-					    $('.zxt_headerbox').css('zIndex',10);
-					    return false;
-				    }
-				    if ( index===1 && nextIndex===2 && box.hasClass("top") )
-				    {
-					
-					    box.removeClass("top");
-					    $('.zxt_headerbox').css('zIndex',-1);
-					    return false;
-				    }
-				    console.log(index)*/
-				    // 底部
-				    if ( index===3 && nextIndex===1 )
-				    {
-					    box.addClass("bottom");
-					    $('#footer').css('zIndex',10);
-					    return false;
-				    }
-				    if ( index===3 && nextIndex===2 && box.hasClass("bottom") )
-				    {
-					
-					    box.removeClass("bottom");
-					    $('#footer').css('zIndex',-1);
-					    return false;
-				    }
-				
-				    // 返回事件阻塞
-				    //return flag
-			    }
-		    }
-	    );
-	    
-	    shareHove()
-	    function shareHove(){
-		    var timerWx = 0;
-		    $('.box-nav .wx').mousemove(function(){
-			    clearTimeout(timerWx);
-			    $('.bob-wx').show();
-		    })
-		
-		    $('.box-nav .wx').mouseout(function(){
-			    timerWx = setTimeout(function(){
-				    $('.bob-wx').hide();
-			    },300)
-		    })
-	    }
-	    
-	    
-	    
-    }
-    render() {
-        return (
 	
-	        <div id="box">
+	handleClose() {
+		this.setState({off: 'off'})
+	}
+	
+	handlePopShow() {
+		this.setState({
+			pop: 'on',
+			shade: 'on',
+			success: '',
+			phone: 'on'
+		});
+		this.refs.myInput.value = '';
+	}
+	
+	handlePopHide() {
+		this.setState({
+			pop: '',
+			shade: '',
+			popText: ''
+		});
+		$.fn.fullpage.setAllowScrolling(true);
+	}
+	
+	handleList(obj) {
+		this.setState({
+			dataTextList: obj,
+			shade: 'on',
+			popText: 'on'
+		});
+		$.fn.fullpage.setAllowScrolling(false);
 		
-		        <div className={"shade"+' '+this.state.shade}></div>
-		        <div className={"yuyue-pop"+' '+this.state.pop}>
-			        <div className="close" onClick={this.handlePopHide}></div>
-			        <div className="iphone">
-				        <p className="iph-text">请输入手机号</p>
-				        <p className="ihp-input"><input type="text" defaultValue={''}/></p>
-				        <p className="iph-btn"><a href="javascript:0"></a></p>
-			        </div>
-			        <div className="success">
-				        <p className="cu-text">预约已成功</p>
-				        <p className="cu-btext">感谢您的参与！</p>
-			        </div>
-		        </div>
-		        <div className="index-box">
-			        <div className="index-logo">
-				        <p className="p1"><img src={logo1} alt=""/></p>
-				        <p className="p2"><img src={logo2} alt=""/></p>
-				        <div className="box-nav">
-					        <p className="yuyue" onClick={this.handlePopShow}><a href="javascript:0;">立即预约</a></p>
-					        <p className="wx">
-						        <a href="javascript:0;">关注微信</a>
-						        <span className="bob-wx"><img src={wxT} alt=""/></span>
-					        </p>
-					        <p className="wb"><a href="javascript:0;">关注微博</a></p>
-					        
-				        </div>
-			        </div>
-			        <div className="index-right">
-				        <p className="z-logo"><img src={zLogo} alt=""/></p>
-				        <ul id="menu">
-					        <li data-menuanchor="page1" className="page1"><a href="#page1"></a></li>
-					        <li data-menuanchor="page2" className="page2"><a href="#page2"></a></li>
-					        <li data-menuanchor="page3" className="page3"><a href="#page3"></a></li>
-				        </ul>
-			        </div>
-		        </div>
-		        <div className={"tab-right"+' '+this.state.off}>
+	}
+	
+	phoneNum() {
+		//立即预约
+		/*手机号验证*/
+		let This = this;
+		vailPhone()
+		function vailPhone() {
+			let phone = $(".ihp-input input").val();
+			let flag = false;
+			let message = '';
+			let myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-9]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
+			if (phone == '') {
+				message = "手机号码不能为空！";
+			} else if (phone.length != 11) {
+				message = "请输入有效的手机号码！";
+			} else if (!myreg.test(phone)) {
+				message = "请输入有效的手机号码！";
+			} else {
+				flag = true;
+			}
+			if (!flag) {
+				//提示错误效果
+				var onOff = true;
+				$('.point').html(message);
+				setTimeout(function () {
+					$('.point').html('');
+				}, 2000)
+				
+			} else {
+				
+				$.ajax({
+					type: 'GET',
+					dataType: 'jsonp',
+					url: 'http://test.zyj.8864.com/getyyphone',
+					data: {phone: $(".ihp-input input").val()},
+					success: function (data) {
+						console.log(data);
+						//预约成功
+						console.log(data.msg)
+						if (parseInt(data.msg) == -1) {
+							$('.point').html('该手机号已经注册过，请换别手号码！！！');
+							setTimeout(function () {
+								$('.point').html('');
+							}, 2000)
+						} else {
+							This.setState({
+								success: 'on',
+								phone: ''
+							})
+						}
+						return false;
+					},
+					error: function (err) {
+						console.log(0)
+					}
+				})
+			}
+			;
+			return false;
+		}
+		
+	}
+	
+	componentDidMount() {
+		let This = this;
+		//判断是否手机
+		
+		$('#fullpage').fullpage(
+			{
+				sectionsColor:            // 背景色
+					[
+						'#fff', '#fff', '#fff', '#fff'
+					],
+				//navigation: true,        // 显示导航
+				loopBottom: true,        // 顶部轮滚
+				loopTop: true,        // 顶部轮滚
+				css3: true,        // 开启CSS3动画
+				paddingTop: 60,
+				anchors: ['page1', 'page2', 'page3','page4'],
+				menu: '#menu',
+				onLeave: function (index, nextIndex, direction) {
+					var box = $("#box");
+					
+					// 顶部
+					/*if ( index===1 && nextIndex===4 )
+					 {
+					 box.addClass("top");
+					 $('.zxt_headerbox').css('zIndex',10);
+					 return false;
+					 }
+					 if ( index===1 && nextIndex===2 && box.hasClass("top") )
+					 {
+					 
+					 box.removeClass("top");
+					 $('.zxt_headerbox').css('zIndex',-1);
+					 return false;
+					 }
+					 console.log(index)*/
+					// 底部
+					if (index === 4 && nextIndex === 1) {
+						box.addClass("bottom");
+						$('#footer').css('zIndex', 10);
+						return false;
+					}
+					if (index === 4 && nextIndex === 3 && box.hasClass("bottom")) {
+						
+						box.removeClass("bottom");
+						$('#footer').css('zIndex', -1);
+						return false;
+					}
+					
+					// 返回事件阻塞
+					//return flag
+				}
+			}
+		);
+		shareHove()
+		function shareHove() {
+			var timerWx = 0;
+			$('.box-nav .wx').mousemove(function () {
+				clearTimeout(timerWx);
+				$('.bob-wx').show();
+			})
+			
+			$('.box-nav .wx').mouseout(function () {
+				timerWx = setTimeout(function () {
+					$('.bob-wx').hide();
+				}, 300)
+			})
+		};
+		
+		//已预约人数
+		$.ajax({
+			type: 'get',
+			dataType: 'jsonp',
+			url: 'http://test.zyj.8864.com/getyycount',
+			success: function (data) {
+				if (data.msg == 1) {
+					This.setState({
+						num: data.code
+					});
+					let num = -1;
+					// if (data.code >= 20000 && data.code < 80000) {
+					// 	num = 0
+					// } else if (data.code >= 80000 && data.code < 150000) {
+					// 	num = 1
+					// } else if (data.code >= 150000 && data.code < 300000) {
+					// 	num = 2
+					// } else if (data.code >= 300000 && data.code < 500000) {
+					// 	num = 3
+					// } else if (data.code >= 500000 && data.code < 1000000) {
+					// 	num = 4
+					// } else if (data.code >= 1000000) {
+					// 	num = 5
+					// }
+					
+					let arr = [20000, 80000, 150000, 300000, 500000, 1000000];
+					
+					for (var i = 0; i < arr.length; i++) {
+						if (data.code >= arr[i] && data.code < arr[i + 1]) {
+							num = i;
+							break;
+						} else if (data.code >= arr[arr.length - 1]) {
+							num = arr.length - 1;
+							break;
+						}
+					}
+					
+					if (num != -1) {
+						let Now = This.state.aBox;
+						for (let i = 0; i <= num; i++) {
+							Now[i] = true
+						}
+						This.setState({aBox: Now});
+					}
+				}
+			},
+			error: function (err) {
+				console.log(err)
+			}
+		})
+		
+		
+	}
+	
+	render() {
+		let This = this;
+		return (
+			
+			<div id="box">
+				
+				<div className={"shade" + ' ' + this.state.shade}></div>
+				
+				<div className={"text-detailed" + ' ' + this.state.popText }>
+					<div className="close" onClick={this.handlePopHide}></div>
+					<div className="titlt-time">
+						<h6>{this.state.dataTextList.title}</h6>
+						<span>发表时间：{this.state.dataTextList.update_time}</span>
+					</div>
+					<div className="content-box">
+						<div className="content-p"
+						     dangerouslySetInnerHTML={{__html: this.state.dataTextList.content}}></div>
+					</div>
+				</div>
+				<div className={"yuyue-pop" + ' ' + this.state.pop}>
+					<div className="close" onClick={this.handlePopHide}></div>
+					<div className={"iphone" + ' ' + this.state.phone}>
+						<p className="iph-text">请输入手机号</p>
+						<p className="ihp-input"><input type="text" ref='myInput' defaultValue={''}/></p>
+						<p className="point"></p>
+						<p className="iph-btn"><a href="javascript:void(0);" onClick={this.phoneNum}></a></p>
+					</div>
+					<div className={"success" + ' ' + this.state.success}>
+						<p className="cu-text">预约已成功</p>
+						<p className="cu-btext">感谢您的参与！</p>
+					</div>
+				</div>
+				<div className="index-box">
+					<div className="index-logo">
+						<p className="p1"><img src={logo1} alt=""/></p>
+						<p className="p2"><img src={logo2} alt=""/></p>
+						<div className="box-nav">
+							<p className="yuyue" onClick={this.handlePopShow}><a href="javascript:0;">立即预约</a></p>
+							<p className="wx">
+								<a href="javascript:0;">关注微信</a>
+								<span className="bob-wx"><img src={wxT} alt=""/></span>
+							</p>
+							<p className="wb"><a href="javascript:0;">关注微博</a></p>
+						
+						</div>
+					</div>
+					<div className="index-right">
+						<p className="z-logo"><img src={zLogo} alt=""/></p>
+						<ul id="menu">
+							<li data-menuanchor="page1" className="page1"><a href="#page1"></a></li>
+							<li data-menuanchor="page2" className="page2"><a href="#page2"></a></li>
+							<li data-menuanchor="page3" className="page3"><a href="#page3"></a></li>
+							<li data-menuanchor="page4" className="page4"><a href="#page4"></a></li>
+						</ul>
+					</div>
+				</div>
+				<div className={"tab-right" + ' ' + this.state.off}>
 					<p className="logo"><img src={rLogo} alt=""/></p>
-			        <p className="close" onClick={this.handleClose}></p>
-			        <p className="ewm">
-				        <img src={rEwm} alt=""/>
-				        <span>扫一扫关注微信<br/>了解游戏新动态</span>
-			        </p>
-			        <p className="btn">
-				        <a href="##"></a>
-			        </p>
-		        </div>
-		        <div className="index-bottom">
-			        <div className="bottom-box">
-				        <div className="n-01">
-					        <p className="btn" onClick={this.handlePopShow}></p>
-					        <p className="number">已预约人数: <span>1234567</span></p>
-				        </div>
-				        <div className="n-box1">
-					        <p className="a-box1 on"></p>
-					        <p className="b-box1">
-						        <span></span>
-					        </p>
-				        </div>
-				        <div className="n-box2">
-					        <p className="a-box2"></p>
-					        <p className="b-box2">
-						        <span></span>
-					        </p>
-				        </div>
-				        <div className="n-box3">
-					        <p className="a-box3"></p>
-					        <p className="b-box3">
-						        <span></span>
-					        </p>
-				        </div>
-				        <div className="n-box4">
-					        <p className="a-box4"></p>
-					        <p className="b-box4">
-						        <span></span>
-					        </p>
-				        </div>
-				        <div className="n-box5">
-					        <p className="a-box5"></p>
-					        <p className="b-box5">
-						        <span></span>
-					        </p>
-				        </div>
-				        <div className="n-box6">
-					        <p className="a-box6"></p>
-					        <p className="b-box6">
-						        <span></span>
-					        </p>
-				        </div>
-			        </div>
-		        </div>
-		        <div id="fullpage">
-			        <div>
-				        <div className="section"><One/></div>
-				        <div className="section"><Two/></div>
-				        <div className="section"><Three/></div>
-	  		        </div>
-			        <div></div>
-		        </div>
-	        </div>
-        )
-    }
+					<p className="close" onClick={this.handleClose}></p>
+					<p className="ewm">
+						<img src={rEwm} alt=""/>
+						<span>扫一扫关注微信<br/>了解游戏新动态</span>
+					</p>
+					<p className="btn">
+						<a href="##"></a>
+					</p>
+				</div>
+				<div className="index-bottom">
+					<div className="bottom-box">
+						<div className="n-01">
+							<p className="btn" onClick={this.handlePopShow}></p>
+							<p className="number">已预约人数: <span>{this.state.num}</span></p>
+						</div>
+						{
+							This.state.aBox.map(function (item, index) {
+								return (
+									<div className={'n-box' + index} key={index}>
+										<p className={ This.state.aBox[index] == true ? 'a-box' + index + ' ' + 'on' : 'a-box' + index }></p>
+										<p className={'b-box' + index}>
+											<span></span>
+										</p>
+									</div>
+								)
+							})
+						}
+						
+						{/*<div className="n-box2">
+						 <p className={"a-box2"+' '+this.state.aBox}></p>
+						 <p className="b-box2">
+						 <span></span>
+						 </p>
+						 </div>
+						 <div className="n-box3">
+						 <p className={"a-box3"+' '+this.state.aBox}></p>
+						 <p className="b-box3">
+						 <span></span>
+						 </p>
+						 </div>
+						 <div className="n-box4">
+						 <p className={"a-box4"+' '+this.state.aBox}></p>
+						 <p className="b-box4">
+						 <span></span>
+						 </p>
+						 </div>
+						 <div className="n-box5">
+						 <p className={"a-box5"+' '+this.state.aBox}></p>
+						 <p className="b-box5">
+						 <span></span>
+						 </p>
+						 </div>
+						 <div className="n-box6">
+						 <p className={"a-box6"+' '+this.state.aBox}></p>
+						 <p className="b-box6">
+						 <span></span>
+						 </p>
+						 </div>*/}
+					</div>
+				</div>
+				<div id="fullpage">
+					<div>
+						<div className="section"><One/></div>
+						<div className="section"><Two/></div>
+						<div className="section"><Two/></div>
+						<div className="section"><Three handleList={this.handleList}/></div>
+					</div>
+					<div></div>
+				</div>
+			</div>
+		)
+	}
 }
 ;
 

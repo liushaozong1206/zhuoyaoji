@@ -11,19 +11,18 @@ var ajaxGet = function (url, fn) {
 };
 */
 
-
-var proxyUrl = 'http://opm.8864.com/api/barrage';
-
-var isMobile = function(){
-    var u = navigator.userAgent.toLowerCase();
-
-    if(u.indexOf('iphone')>0 || u.indexOf('android')>0 || u.indexOf('xiaomi')>0){
-
-        window.location.href = 'http://swl.8864.com/mobile_test/html/index.html';
-        return false;
-    }
-}
+/*var Superagent = function(url,data,fn){
+	Superagent
+		.get(url)
+		.query(data)
+		.end(function (err, res) {
+			fn.call(window,res)
+		});
+}*/
 
 
 
-export { proxyUrl,isMobile}
+var proxyUrl = 'http://192.168.84.1:3000';
+
+
+export { proxyUrl}

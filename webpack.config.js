@@ -73,12 +73,12 @@ module.exports = {
         progress: true,
         contentBase: ROOT_PATH,
         host: '0.0.0.0',
-        /*proxy: [{
-            context: ['/index/!*'],
-            target: 'http://192.168.84.43:3000/',
+        proxy: [{
+            context: ['/api/website/getcolumncontent','/api/website/getcolumncontentpage'],
+            target: 'http://opm.8864.com',
             changeOrigin: true,
             ws: true,
             secure: false
-        }]*/
+        }]
     }
 };

@@ -43,6 +43,8 @@
   "dependencies": {
     "es5-shim": "^4.5.9",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "superagent": "^3.5.2",
+    "superagent-jsonp": "^0.1.1"
   }
 }
