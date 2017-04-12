@@ -15,7 +15,7 @@ import title from "./img/three01.png";
 import tabRight from "./img/three03.png";
 import coop from "./img/three04.png";
 import rightImg from "./img/four-02.png";
-
+import threeR from "./img/three-r.jpg";
 class Three extends Component {
 	constructor() {
 		super();
@@ -76,15 +76,12 @@ class Three extends Component {
 				This.handleListPage();
 			}, 10)
 		}
-		console.log(this.state.page)
 	}
 	
 	//下一页
 	hanleNext() {
 		let This = this;
 		
-		console.log(this.state.page);
-		console.log(this.state.totalPage)
 		if(parseInt(this.state.page - 1) == this.state.totalPage){
 			return false
 		}else if (this.state.page >= 1) {
@@ -159,7 +156,7 @@ class Three extends Component {
 						<p className="right"><img src={rightImg} alt=""/></p>
 						<div className="tab-b">
 							<div className="three-left">
-								<div className="left-img"></div>
+								<div className="left-img"><img src={threeR} alt=""/></div>
 								<div className="left-cont">
 									<div className="cont-list">
 										<ul>

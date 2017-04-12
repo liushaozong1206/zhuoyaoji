@@ -466,10 +466,10 @@ em, i {
         bottom: 50px; }
       #two .two-box .zhou .slogan {
         position: absolute;
-        left: 165px;
-        top: 20px;
-        width: 299px;
-        height: 77px; }
+        left: 185px;
+        top: 30px;
+        width: 104px;
+        height: 63px; }
       #two .two-box .zhou .zhou-tab {
         width: 710px;
         height: 430px;
@@ -484,10 +484,78 @@ em, i {
           #two .two-box .zhou .zhou-tab .tab .tab-list {
             display: none; }
           #two .two-box .zhou .zhou-tab .tab .tab-list.active {
-            display: block;
-            -webkit-animation: fadeIn 1s ease-in both;
-            -moz-animation: fadeIn 1s ease-in both;
-            animation: fadeIn 1s ease-in both; }
+            display: block; }
+          #two .two-box .zhou .zhou-tab .tab .tab-cont {
+            width: 690px;
+            height: 430px;
+            margin: 0 auto; }
+            #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-b {
+              display: none; }
+              #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-b.active {
+                display: block;
+                -webkit-animation: fadeIn 1s ease-in both;
+                -moz-animation: fadeIn 1s ease-in both;
+                animation: fadeIn 1s ease-in both; }
+            #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-01 {
+              width: 100%;
+              height: 100%; }
+              #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-01 .tab-occupation {
+                width: 100%;
+                height: 32px; }
+                #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-01 .tab-occupation .occupation {
+                  width: 100px;
+                  height: 32px;
+                  text-align: center;
+                  line-height: 32px;
+                  font-size: 16px;
+                  background: url("./img/z1.png") no-repeat;
+                  float: left;
+                  color: #593731;
+                  margin-right: 25px;
+                  cursor: pointer; }
+                  #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-01 .tab-occupation .occupation.active {
+                    width: 100px;
+                    height: 32px;
+                    background: url("./img/z01.png") no-repeat; }
+              #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-01 .occupation-cont {
+                width: 690px;
+                height: 375px;
+                margin-top: 30px;
+                display: none; }
+                #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-01 .occupation-cont h6 {
+                  font-size: 30px;
+                  color: #252525;
+                  padding-bottom: 20px; }
+                #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-01 .occupation-cont p {
+                  width: 345px;
+                  font-size: 16px;
+                  color: #252525;
+                  line-height: 27px; }
+                  #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-01 .occupation-cont p.fontT {
+                    font-size: 20px;
+                    margin-bottom: 20px; }
+                #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-01 .occupation-cont.active {
+                  display: block; }
+                #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-01 .occupation-cont .cont-tab-img {
+                  position: absolute;
+                  right: 0;
+                  top: 0; }
+            #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-02 ul {
+              margin-top: 20px; }
+              #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-02 ul li {
+                width: 150px;
+                height: 205px;
+                text-align: center;
+                float: left;
+                margin: 0 40px; }
+                #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-02 ul li p {
+                  font-size: 18px;
+                  color: #252525; }
+                  #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-02 ul li p img {
+                    cursor: pointer; }
+                  #two .two-box .zhou .zhou-tab .tab .tab-cont .cont-02 ul li p span {
+                    color: #a74913;
+                    font-size: 23px; }
           #two .two-box .zhou .zhou-tab .tab .left-btn {
             position: absolute;
             width: 50px;
@@ -512,13 +580,13 @@ em, i {
             height: 430px; }
           #two .two-box .zhou .zhou-tab .tab .cont {
             float: right;
-            width: 330px;
+            width: 340px;
             height: 430px; }
             #two .two-box .zhou .zhou-tab .tab .cont p {
               font-size: 16px;
               color: #252525;
               line-height: 22px;
-              padding-bottom: 20px; }
+              padding-bottom: 10px; }
         #two .two-box .zhou .zhou-tab .tab-btn {
           position: absolute;
           top: -128px;
@@ -567,7 +635,7 @@ em, i {
       height: 54px;
       left: 50%;
       margin-right: -37px;
-      bottom: 210px;
+      bottom: 90px;
       z-index: 10;
       -webkit-animation: flash 2s ease-in infinite;
       -moz-animation: flash 2s ease-in infinite;

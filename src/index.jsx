@@ -9,6 +9,7 @@ import "./public/public.scss";
 import One from "./components/one/one";
 import Two from "./components/two/two";
 import Three from "./components/three/three";
+import Four from "./components/four/four";
 
 import logo1 from "./public/img/logo.png";
 import logo2 from "./public/img/logo2.png";
@@ -29,15 +30,24 @@ class App extends Component {
 		this.handlePopHide = this.handlePopHide.bind(this);
 		this.handleList = this.handleList.bind(this);
 		this.phoneNum = this.phoneNum.bind(this);
+		this.handleTakeList = this.handleTakeList.bind(this);
+		this.handlePicture = this.handlePicture.bind(this);
+		this.handleVideo = this.handleVideo.bind(this);
 		this.state = {
 			off: '',
 			pop: '',
 			popText: '',
 			phone: 'on',
 			success: '',
+			takeText: '',
 			num: 0,
 			aBox: [false, false, false, false, false, false],//打开箱子
-			dataTextList: {}
+			dataTextList: {},
+			dataTakeList: {},
+			dataPicture: '',
+			pictureHide:'',
+			videoHide:'',
+			videoUrl:''
 		};
 	}
 	
@@ -59,7 +69,12 @@ class App extends Component {
 		this.setState({
 			pop: '',
 			shade: '',
-			popText: ''
+			popText: '',
+			takeText: '',
+			shade: '',
+			pictureHide:'',
+			videoHide:'',
+			videoUrl:''
 		});
 		$.fn.fullpage.setAllowScrolling(true);
 	}
@@ -72,6 +87,30 @@ class App extends Component {
 		});
 		$.fn.fullpage.setAllowScrolling(false);
 		
+	}
+	
+	handleTakeList(obj) {
+		this.setState({
+			dataTakeList: obj,
+			shade: 'on',
+			takeText: 'on'
+		});
+		$.fn.fullpage.setAllowScrolling(false);
+	}
+	
+	handlePicture(obj) {
+		this.setState({
+			dataPicture:obj,
+			shade: 'on',
+			pictureHide:'on'
+		})
+	};
+	handleVideo(obj){
+		this.setState({
+			videoUrl:obj,
+			shade: 'on',
+			videoHide:'on'
+		})
 	}
 	
 	phoneNum() {
@@ -109,9 +148,7 @@ class App extends Component {
 					url: 'http://test.zyj.8864.com/getyyphone',
 					data: {phone: $(".ihp-input input").val()},
 					success: function (data) {
-						console.log(data);
 						//预约成功
-						console.log(data.msg)
 						if (parseInt(data.msg) == -1) {
 							$('.point').html('该手机号已经注册过，请换别手号码！！！');
 							setTimeout(function () {
@@ -126,7 +163,6 @@ class App extends Component {
 						return false;
 					},
 					error: function (err) {
-						console.log(0)
 					}
 				})
 			}
@@ -151,27 +187,16 @@ class App extends Component {
 				loopTop: true,        // 顶部轮滚
 				css3: true,        // 开启CSS3动画
 				paddingTop: 60,
-				anchors: ['page1', 'page2', 'page3','page4'],
+				anchors: ['page1', 'page2', 'page3', 'page4'],
 				menu: '#menu',
 				onLeave: function (index, nextIndex, direction) {
 					var box = $("#box");
-					
-					// 顶部
-					/*if ( index===1 && nextIndex===4 )
-					 {
-					 box.addClass("top");
-					 $('.zxt_headerbox').css('zIndex',10);
-					 return false;
-					 }
-					 if ( index===1 && nextIndex===2 && box.hasClass("top") )
-					 {
-					 
-					 box.removeClass("top");
-					 $('.zxt_headerbox').css('zIndex',-1);
-					 return false;
-					 }
-					 console.log(index)*/
 					// 底部
+					if (index == 0 && nextIndex == 1 && direction == 'down' || index == 2 && nextIndex == 1 && direction == 'up') {
+						$('.index-bottom').css('display', 'block')
+					} else {
+						$('.index-bottom').css('display', 'none')
+					}
 					if (index === 4 && nextIndex === 1) {
 						box.addClass("bottom");
 						$('#footer').css('zIndex', 10);
@@ -215,19 +240,21 @@ class App extends Component {
 						num: data.code
 					});
 					let num = -1;
-					// if (data.code >= 20000 && data.code < 80000) {
-					// 	num = 0
-					// } else if (data.code >= 80000 && data.code < 150000) {
-					// 	num = 1
-					// } else if (data.code >= 150000 && data.code < 300000) {
-					// 	num = 2
-					// } else if (data.code >= 300000 && data.code < 500000) {
-					// 	num = 3
-					// } else if (data.code >= 500000 && data.code < 1000000) {
-					// 	num = 4
-					// } else if (data.code >= 1000000) {
-					// 	num = 5
-					// }
+					
+					if (This.state.num >= 20000 && This.state.num < 80000) {
+						$('.min-monster0').css('display', 'block');
+					} else if (This.state.num >= 80000 && This.state.num < 150000) {
+						$('.min-monster1').css('display', 'block')
+					} else if (This.state.num >= 150000 && This.state.num < 300000) {
+						$('.min-monster2').css('display', 'block')
+					} else if (This.state.num >= 300000 && This.state.num < 500000) {
+						$('.min-monster3').css('display', 'block')
+					} else if (This.state.num >= 500000 && This.state.num < 1000000) {
+						$('.min-monster4').css('display', 'block')
+					} else if (This.state.num >= 1000000) {
+						$('.min-monster5').css('display', 'block')
+					}
+					
 					
 					let arr = [20000, 80000, 150000, 300000, 500000, 1000000];
 					
@@ -251,21 +278,20 @@ class App extends Component {
 				}
 			},
 			error: function (err) {
-				console.log(err)
 			}
 		})
 		
 		
 	}
 	
-	render() {
+	render() {console.log(this.state.videoUrl)
 		let This = this;
 		return (
 			
 			<div id="box">
 				
 				<div className={"shade" + ' ' + this.state.shade}></div>
-				
+				{/*文章列表内容*/}
 				<div className={"text-detailed" + ' ' + this.state.popText }>
 					<div className="close" onClick={this.handlePopHide}></div>
 					<div className="titlt-time">
@@ -277,6 +303,7 @@ class App extends Component {
 						     dangerouslySetInnerHTML={{__html: this.state.dataTextList.content}}></div>
 					</div>
 				</div>
+				{/*手机预约*/}
 				<div className={"yuyue-pop" + ' ' + this.state.pop}>
 					<div className="close" onClick={this.handlePopHide}></div>
 					<div className={"iphone" + ' ' + this.state.phone}>
@@ -290,6 +317,26 @@ class App extends Component {
 						<p className="cu-btext">感谢您的参与！</p>
 					</div>
 				</div>
+				{/*特色玩法*/}
+				<div className={"take-cont" + ' ' + this.state.takeText}>
+					<div className="clons" onClick={this.handlePopHide}></div>
+					<h6 dangerouslySetInnerHTML={{__html: this.state.dataTakeList.title}}></h6>
+					<div className="take-box">
+						<div className="take-text"
+						     dangerouslySetInnerHTML={{__html: this.state.dataTakeList.content}}></div>
+					</div>
+				</div>
+				{/*原画*/}
+				<div className={"picture-cont"+' '+this.state.pictureHide}>
+					<div className="close" onClick={this.handlePopHide}></div>
+					<img src={'http://opm.8864.com' + this.state.dataPicture} alt=""/>
+				</div>
+				{/*视频*/}
+				<div className={"picture-video"+' '+this.state.videoHide}>
+					<div className="close" onClick={this.handlePopHide}></div>
+					<video className="video" src={this.state.videoUrl} controls="controls" ></video>
+				</div>
+				
 				<div className="index-box">
 					<div className="index-logo">
 						<p className="p1"><img src={logo1} alt=""/></p>
@@ -306,6 +353,7 @@ class App extends Component {
 					</div>
 					<div className="index-right">
 						<p className="z-logo"><img src={zLogo} alt=""/></p>
+						<p className="deng"></p>
 						<ul id="menu">
 							<li data-menuanchor="page1" className="page1"><a href="#page1"></a></li>
 							<li data-menuanchor="page2" className="page2"><a href="#page2"></a></li>
@@ -336,6 +384,7 @@ class App extends Component {
 								return (
 									<div className={'n-box' + index} key={index}>
 										<p className={ This.state.aBox[index] == true ? 'a-box' + index + ' ' + 'on' : 'a-box' + index }></p>
+										<p className={"min-monster" + index}></p>
 										<p className={'b-box' + index}>
 											<span></span>
 										</p>
@@ -343,44 +392,14 @@ class App extends Component {
 								)
 							})
 						}
-						
-						{/*<div className="n-box2">
-						 <p className={"a-box2"+' '+this.state.aBox}></p>
-						 <p className="b-box2">
-						 <span></span>
-						 </p>
-						 </div>
-						 <div className="n-box3">
-						 <p className={"a-box3"+' '+this.state.aBox}></p>
-						 <p className="b-box3">
-						 <span></span>
-						 </p>
-						 </div>
-						 <div className="n-box4">
-						 <p className={"a-box4"+' '+this.state.aBox}></p>
-						 <p className="b-box4">
-						 <span></span>
-						 </p>
-						 </div>
-						 <div className="n-box5">
-						 <p className={"a-box5"+' '+this.state.aBox}></p>
-						 <p className="b-box5">
-						 <span></span>
-						 </p>
-						 </div>
-						 <div className="n-box6">
-						 <p className={"a-box6"+' '+this.state.aBox}></p>
-						 <p className="b-box6">
-						 <span></span>
-						 </p>
-						 </div>*/}
+					
 					</div>
 				</div>
 				<div id="fullpage">
 					<div>
 						<div className="section"><One/></div>
-						<div className="section"><Two/></div>
-						<div className="section"><Two/></div>
+						<div className="section"><Two handleTakeList={this.handleTakeList}/></div>
+						<div className="section"><Four  handlePicture={this.handlePicture} handleVideo={this.handleVideo}/></div>
 						<div className="section"><Three handleList={this.handleList}/></div>
 					</div>
 					<div></div>

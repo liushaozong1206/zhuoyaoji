@@ -26,3 +26,4 @@ var proxyUrl = 'http://192.168.84.1:3000';
 
 
 export { proxyUrl}
+

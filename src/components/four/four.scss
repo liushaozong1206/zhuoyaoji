@@ -1,0 +1,281 @@
+/*----------import module----------*/
+@import "../../../libs/scss/bourbon/bourbon";
+@import "../../../libs/scss/normalize";
+@import "../../../libs/scss/public";
+
+/*----------my style----------*/
+
+#two {
+    width: 100%;
+    height: 100%;
+    background: url("./img/two-bg.jpg") no-repeat;
+    .two-box {
+        width: 1440px;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        .four-bg{
+            position: absolute;
+            left: 50%;
+            width: 1003px;
+            height: 553px;
+            margin-left: -502px;
+            top: 225px;
+            background: url("./img/four-bg.png") no-repeat;
+            .four-title{
+                position: absolute;
+                top: -85px;
+                width: 106px;
+                height: 62px;
+                left: 37px;
+            }
+            .four-titleR{
+                position: absolute;
+                right: 150px;
+                top: -149px;
+            }
+            .fourTab-nav{
+                ul {
+                    position: absolute;
+                    width: 490px;
+                    top: 60px;
+                    left: 50%;
+                    margin-left: -245px;
+                    li {
+                        float: left;
+                        width: 100px;
+                        height: 32px;
+                        line-height: 32px;
+                        text-align: center;
+                        color: #593731;
+                        font-size: 16px;
+                        margin: 0 10px;
+                        background: url("./img/z1.png") no-repeat;
+                        cursor: pointer;
+                        &.active {
+                            background: url("./img/z01.png") no-repeat;
+                        }
+                    }
+                }
+            }
+            .fourTab-cont{
+                position: absolute;
+                width: 820px;
+                height: 390px;
+                left: 90px;
+                top: 115px;
+                .fourBtnL{
+                    position: absolute;
+                    left: -50px;
+                    width: 50px;
+                    height: 50px;
+                    background: url("./img/left.png") no-repeat center;
+                    top: 150px;
+                    cursor:pointer;
+                }
+                .fourBtnR{
+                    position: absolute;
+                    right: -50px;
+                    width: 50px;
+                    height: 50px;
+                    background: url("./img/right.png") no-repeat center;
+                    top: 150px;
+                    cursor:pointer;
+                }
+                .fourTab-text{
+                    width: 100%;
+                    height: 100%;
+                    ul {
+                        display: none;
+                        li {
+                            position: relative;
+                            float: left;
+                            width: 245px;
+                            height: 150px;
+                            margin: 8px 14px;
+                            cursor: pointer;
+                            img{
+                                width: 245px;
+                                height: 150px;
+                            }
+                            span {
+                                position: absolute;
+                                width: 100%;
+                                height: 40px;
+                                line-height: 40px;
+                                font-size: 18px;
+                                text-align: center;
+                                background: rgba(0, 0, 0, 0.7);
+                                bottom: 0;
+                                left: 0;
+                                color: #fff;
+                            }
+                            font{
+                                position: absolute;
+                                display: block;
+                                left: 50%;
+                                margin-left: -20px;
+                                top: 45%;
+                                margin-top: -20px;
+                                img{
+                                    width: 41px;
+                                    height: 41px;
+                                }
+
+                            }
+                        }
+                        .page {
+                            position:absolute;
+                            bottom: 0;
+                            a {
+                                display: inline-block;
+                                width: 20px;
+                                height: 20px;
+                                font-size: 15px;
+                                color: #8a7752;
+                                text-align: center;
+                                line-height: 20px;
+                                margin: 0 5px;
+                                vertical-align: bottom;
+                                margin-bottom: 3px;
+                                &.active {
+                                    display: inline-block;
+                                    color: #9e6227;
+                                    font-weight: bold;
+                                    font-size: 18px;
+                                }
+                            }
+                            .home {
+                                display: inline-block;
+                                width: 20px;
+                                height: 20px;
+                                background: url("./img/home.png") center no-repeat;
+                                margin: 0 5px;
+                                cursor: pointer;
+                            }
+                            .pre {
+                                display: inline-block;
+                                width: 20px;
+                                height: 20px;
+                                margin: 0 5px;
+                                cursor: pointer;
+                                background: url("./img/pre.png") center no-repeat;
+                            }
+                            .next {
+                                display: inline-block;
+                                width: 20px;
+                                height: 20px;
+                                background: url("./img/next.png") center no-repeat;
+                                margin: 0 5px;
+                                cursor: pointer;
+                            }
+                            .end {
+                                display: inline-block;
+                                width: 20px;
+                                height: 20px;
+                                cursor: pointer;
+                                background: url("./img/end.png") center no-repeat;
+                                margin: 0 5px;
+                            }
+
+                        }
+                    }
+                    ul.active{
+                        display: block;
+                    }
+                }
+            }
+        }
+        .zoo {
+            position: absolute;
+            width: 1040px;
+            height: 755px;
+            left: 50%;
+            top: 65px;
+            margin-left: -520px;
+            .animal {
+                position: absolute;
+                z-index: 1;
+                right: -70px;
+                bottom: 95px;
+            }
+        }
+
+        .pageNext {
+            position: absolute;
+            width: 75px;
+            height: 54px;
+            left: 50%;
+            margin-right: -37px;
+            bottom: 90px;
+            z-index: 10;
+            @include animation(flash 2s ease-in infinite);
+        }
+
+    }
+}
+
+.active {
+    .two-box{
+        @include animation(fadeIn 1.5s ease-in both);
+    }
+    .fourTab-text{
+        ul.active{
+            @include animation(fadeIn 1s ease-in both);
+        }
+    }
+}
+
+@include keyframes(flash) {
+    0% {
+        @include transform(translateY(0px));
+        opacity: 0.5;
+    }
+    100% {
+        @include transform(translateY(80px));
+        opacity: 1;
+    }
+}
+
+@include keyframes(fadeIn) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@include keyframes (bounceInLeft) {
+    from, 60%, 75%, 90%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-900px, 0, 0);
+        transform: translate3d(-900px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0);
+        transform: translate3d(25px, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0);
+    }
+
+    to {
+        -webkit-transform: none;
+        transform: none;
+    }
+}

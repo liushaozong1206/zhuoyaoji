@@ -179,19 +179,121 @@
         }
 
     }
+    .take-cont{
+        position: absolute;
+        width: 640px;
+        top: 20%;
+        left: 50%;
+        margin-left: -350px;
+        background: #fff7ea;
+        z-index: 1000;
+        padding: 30px;
+        display: none;
+        &.on{
+            display: block;
+        }
+        .clons{
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            right: 30px;
+            cursor: pointer;
+            background: url("../public/img/clons.png") no-repeat;
+        }
+        h6{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: #a74913 1px solid;
+            font-size: 20px;
+            span{
+                font-size: 22px;
+                color: #a74913;
+                padding-right: 10px;
+            }
+        }
+        .take-box{
+            width: 640px;
+            height: 360px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        .take-text{
+            width: 642px;
+            height: 360px;
+            padding: 0 5px;
+            overflow-y: auto;
+            p{
+                font-size: 15px;
+                color: #a7632b;
+                line-height: 24px;
+            }
+        }
+    }
+    .picture-cont{
+        position: absolute;
+        z-index: 1000;
+        width: 600px;
+        left: 50%;
+        margin-left: -300px;
+        top: 20%;
+        display:none;
+        &.on{
+            display: block;
+        }
+        img{
+            vertical-align: middle;
+        }
+        .close{
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            right: 0px;
+            cursor: pointer;
+            background: url("../public/img/clons.png") no-repeat;
+        }
+    }
+    .picture-video{
+        display: none;
+        position: absolute;
+        width: 700px;
+        left: 50%;
+        margin-left: -350px;
+        margin-top: 20%;
+        z-index: 1000;
+        background: #fff;
+        &.on{
+            display: block;
+            cursor: pointer;
+        }
+        video{
+            width: 700px;
+        }
+        .close{
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            right: 0px;
+            cursor: pointer;
+            z-index: 1001;
+            background: url("../public/img/clons.png") no-repeat;
+        }
+    }
     .index-box {
         position: relative;
         width: 1440px;
         margin: 0 auto;
-        z-index: 1000;
+        z-index: 9;
         top: 75px;
         .index-logo .p1 {
             position: absolute;
-            left: 165px;
+            left: 175px;
+            top: 10px;
         }
         .index-logo .p2 {
             position: absolute;
-            left: 275px;
+            left: 255px;
+            top: 7px;
         }
         .box-nav {
             position: absolute;
@@ -234,57 +336,74 @@
             position: absolute;
             width: 125px;
             height: 512px;
-            top: -16px;
+            top: -30px;
             left: 25px;
-
-            background: url("../public/img/z13.png") no-repeat;
             .z-logo {
                 position: absolute;
                 left: 5px;
                 top: 40px;
             }
+            .deng{
+                position: absolute;
+                width: 101px;
+                height: 267px;
+                top:205px;
+                background:url("../public/img/z13.png") no-repeat ;
+            }
             ul {
                 position: absolute;
-                top: 512px;
-                left: 27px;
+                top: 446px;
+                left: 5px;
                 z-index: 100;
                 li {
-                    width: 70px;
-                    height: 70px;
+                    width: 94px;
+                    height: 94px;
                     background: url("../public/img/z14.png") no-repeat;
                     a {
                         display: block;
-                        width: 70px;
-                        height: 70px;
+                        width: 94px;
+                        height: 94px;
                     }
                 }
                 .page1 {
-                    background-position: 0 0;
+                    position: absolute;
+                    top: 0;
+                    width: 93px;
+                    height: 96px;
+                    background:url("../public/img/n1.png") no-repeat;
                 }
                 .page2 {
-                    background-position: 0px -70px;
+                    position: absolute;
+                    width: 93px;
+                    height: 93px;
+                    top: 83px;
+                    background:url("../public/img/n2.png") no-repeat;
                 }
                 .page3 {
-                    background-position: 0 -140px;
+                    position: absolute;
+                    width: 93px;
+                    height: 93px;
+                    top: 163px;
+                    background:url("../public/img/n3.png") no-repeat;
                 }
                 .page4 {
-                    background-position: 0 -210px;
+                    position: absolute;
+                    top: 243px;
+                    width: 93px;
+                    height: 126px;
+                    background:url("../public/img/n4.png") no-repeat;
                 }
                 .page1 a:hover, .page1.active {
-                    background: url("../public/img/z14.png") no-repeat;
-                    background-position: -74px 0;
+                    background: url("../public/img/n01.png") no-repeat;
                 }
                 .page2 a:hover, .page2.active {
-                    background: url("../public/img/z14.png") no-repeat;
-                    background-position: -74px -70px;
+                    background: url("../public/img/n02.png") no-repeat;
                 }
                 .page3 a:hover, .page3.active {
-                    background: url("../public/img/z14.png") no-repeat;
-                    background-position: -74px -140px;
+                    background: url("../public/img/n03.png") no-repeat;
                 }
                 .page4 a:hover, .page4.active {
-                    background: url("../public/img/z14.png") no-repeat;
-                    background-position: -74px -210px;
+                    background: url("../public/img/n04.png") no-repeat;
                 }
             }
         }
@@ -322,6 +441,7 @@
                 }
             }
             .n-box0, .n-box1, .n-box2, .n-box3, .n-box4, .n-box5 {
+                position: relative;
                 width: 130px;
                 float: left;
                 margin-left: 30px;
@@ -395,6 +515,15 @@
                 }
                 .b-box5 {
                     background: url("../public/img/p06.png") no-repeat;
+                }
+                .min-monster0,.min-monster1,.min-monster2,.min-monster3,.min-monster4,.min-monster5{
+                    display: none;
+                    position: absolute;
+                    left: 90px;
+                    top: -43px;
+                    width: 64px;
+                    height: 56px;
+                    background: url("../public/img/x.png") no-repeat;
                 }
             }
         }

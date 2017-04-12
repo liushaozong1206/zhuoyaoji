@@ -42,8 +42,12 @@ class One extends Component{
 					<div className="layer layer6" data-depth="0.2">
 						<div className="yao4"></div>
 					</div>
+					<div className="layer layer7" data-depth="0.2">
+						<div className="ye"></div>
+					</div>
 					<div className="pageNext"><img src={pageNext} alt=""/></div>
 				</div>
+				
 			</div>
 		)
 	}

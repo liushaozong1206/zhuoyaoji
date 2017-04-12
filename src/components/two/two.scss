@@ -5,223 +5,311 @@
 
 /*----------my style----------*/
 
-#two{
-  width: 100%;
-  height: 100%;
-  background: url("./img/two-bg.jpg") no-repeat;
-  .two-box{
-    width: 1440px;
+#two {
+    width: 100%;
     height: 100%;
-    margin: 0 auto;
-    position: relative;
-    .zhou{
-      position: absolute;
-      width: 1040px;
-      height: 755px;
-      background: url("./img/zhou.png") no-repeat;
-      left: 50%;
-      top: 65px;
-      margin-left: -520px;
-      z-index: 2;
-
-      .animal{
-        position: absolute;
-        width: 181px;
-        height: 191px;
-        right: -70px;
-        z-index: 4;
-        bottom:50px;
-      }
-      .slogan{
-        position: absolute;
-        left: 165px;
-        top: 20px;
-        width: 299px;
-        height: 77px;
-      }
-      .zhou-tab{
-        width: 710px;
-        height: 430px;
+    background: url("./img/two-bg.jpg") no-repeat;
+    .two-box {
+        width: 1440px;
+        height: 100%;
+        margin: 0 auto;
         position: relative;
-        left: 50%;
-        margin-left: -330px;
-        top: 185px;
-        .tab{
-          width: 710px;
-          height: 430px;
-          overflow: hidden;
-          .tab-list{
-            display: none;
-          }
-          .tab-list.active{
-            display: block;
-            @include animation(fadeIn 1s ease-in both);
-          }
-          .left-btn{
+        .zhou {
             position: absolute;
-            width: 50px;
-            height: 50px;
-            left: -60px;
-            top: 50%;
-            margin-top: -25px;
-            background: url("./img/left.png") no-repeat center;
-            cursor: pointer;
-          }
-          .right-btn{
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            right: -60px;
-            top: 50%;
-            margin-top: -25px;
-            background: url("./img/right.png") no-repeat center;
-            cursor: pointer;
-          }
-          .left{
-            float: left;
-            width: 330px;
-            height: 430px;
-          }
-          .cont{
-            float: right;
-            width: 330px;
-            height: 430px;
-            p{
-              font-size: 16px;
-              color: #252525;
-              line-height: 22px;
-              padding-bottom: 20px;
+            width: 1040px;
+            height: 755px;
+            background: url("./img/zhou.png") no-repeat;
+            left: 50%;
+            top: 65px;
+            margin-left: -520px;
+            z-index: 2;
+
+            .animal {
+                position: absolute;
+                width: 181px;
+                height: 191px;
+                right: -70px;
+                z-index: 4;
+                bottom: 50px;
             }
-          }
+            .slogan {
+                position: absolute;
+                left: 185px;
+                top: 30px;
+                width: 104px;
+                height: 63px;
+            }
+            .zhou-tab {
+                width: 710px;
+                height: 430px;
+                position: relative;
+                left: 50%;
+                margin-left: -330px;
+                top: 185px;
+                .tab {
+                    width: 710px;
+                    height: 430px;
+                    overflow: hidden;
+                    .tab-list {
+                        display: none;
+                    }
+                    .tab-list.active {
+                        display: block;
+                    }
+                    .tab-cont {
+                        width: 690px;
+                        height: 430px;
+                        margin: 0 auto;
+                        .cont-b{
+                            display: none;
+                            &.active{
+                                display: block;
+                                @include animation(fadeIn 1s ease-in both);
+                            }
+                        }
+                        .cont-01 {
+                            width: 100%;
+                            height: 100%;
+                            .tab-occupation {
+                                width: 100%;
+                                height: 32px;
+                                .occupation {
+                                    width: 100px;
+                                    height: 32px;
+                                    text-align: center;
+                                    line-height: 32px;
+                                    font-size: 16px;
+                                    background: url("./img/z1.png") no-repeat;
+                                    float: left;
+                                    color: #593731;
+                                    margin-right: 25px;
+                                    cursor: pointer;
+                                    &.active {
+                                        width: 100px;
+                                        height: 32px;
+                                        background: url("./img/z01.png") no-repeat;
+                                    }
+                                }
+                            }
+                            .occupation-cont {
+                                width: 690px;
+                                height: 375px;
+                                margin-top: 30px;
+                                display: none;
+                                h6{
+                                    font-size: 30px;
+                                    color: #252525;
+                                    padding-bottom: 20px;
+                                }
+                                p{
+                                    width: 345px;
+                                    font-size: 16px;
+                                    color: #252525;
+                                    line-height: 27px;
+                                    &.fontT{
+                                        font-size: 20px;
+                                        margin-bottom: 20px;
+                                    }
+                                }
+                                &.active{
+                                    display: block;
+                                }
+                                .cont-tab-img{
+                                    position: absolute;
+                                    right: 0;
+                                    top: 0;
+                                }
+                            }
+                        }
+                        .cont-02{
+                            ul {
+                                margin-top: 20px;
+                                li {
+                                    width: 150px;
+                                    height: 205px;
+                                    text-align: center;
+                                    float: left;
+                                    margin: 0 40px;
+                                    p {
+                                        font-size: 18px;
+                                        color: #252525;
+                                        img{
+                                            cursor: pointer;
+                                        }
+                                        span {
+                                            color: #a74913;
+                                            font-size: 23px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .left-btn {
+                        position: absolute;
+                        width: 50px;
+                        height: 50px;
+                        left: -60px;
+                        top: 50%;
+                        margin-top: -25px;
+                        background: url("./img/left.png") no-repeat center;
+                        cursor: pointer;
+                    }
+                    .right-btn {
+                        position: absolute;
+                        width: 50px;
+                        height: 50px;
+                        right: -60px;
+                        top: 50%;
+                        margin-top: -25px;
+                        background: url("./img/right.png") no-repeat center;
+                        cursor: pointer;
+                    }
+                    .left {
+                        float: left;
+                        width: 330px;
+                        height: 430px;
+                    }
+                    .cont {
+                        float: right;
+                        width: 340px;
+                        height: 430px;
+                        p {
+                            font-size: 16px;
+                            color: #252525;
+                            line-height: 22px;
+                            padding-bottom: 10px;
+                        }
+                    }
+                }
+                .tab-btn {
+                    position: absolute;
+                    top: -128px;
+                    right: -40px;
+                    width: 315px;
+                    height: 104px;
+                    .list-0 {
+                        width: 104px;
+                        height: 104px;
+                        float: left;
+                        cursor: pointer;
+                        background: url("./img/tab01.png") no-repeat;
+                    }
+                    .list-1 {
+                        width: 104px;
+                        height: 104px;
+                        float: left;
+                        cursor: pointer;
+                        background: url("./img/tab02.png") no-repeat;
+                    }
+                    .list-2 {
+                        width: 104px;
+                        height: 104px;
+                        float: left;
+                        cursor: pointer;
+                        background: url("./img/tab03.png") no-repeat;
+                    }
+                    .list-0.active {
+                        background: url("./img/tab1.png") no-repeat;
+                    }
+                    .list-1.active {
+                        background: url("./img/tab2.png") no-repeat;
+                    }
+                    .list-2.active {
+                        background: url("./img/tab3.png") no-repeat;
+                    }
+                }
+            }
         }
-        .tab-btn{
-          position: absolute;
-          top: -128px;
-          right: -40px;
-          width: 315px;
-          height: 104px;
-          .list-0{
-            width: 104px;
-            height: 104px;
-            float: left;
-            cursor: pointer;
-            background: url("./img/tab01.png") no-repeat;
-          }
-          .list-1{
-            width: 104px;
-            height: 104px;
-            float: left;
-            cursor: pointer;
-            background: url("./img/tab02.png") no-repeat;
-          }
-          .list-2{
-            width: 104px;
-            height: 104px;
-            float: left;
-            cursor: pointer;
-            background: url("./img/tab03.png") no-repeat;
-          }
-          .list-0.active{
-            background: url("./img/tab1.png") no-repeat;
-          }
-          .list-1.active{
-            background: url("./img/tab2.png") no-repeat;
-          }
-          .list-2.active{
-            background: url("./img/tab3.png") no-repeat;
-          }
+        .zoo {
+            position: absolute;
+            width: 1040px;
+            height: 755px;
+            left: 50%;
+            top: 65px;
+            margin-left: -520px;
+            .animal {
+                position: absolute;
+                z-index: 1;
+                right: -70px;
+                bottom: 95px;
+            }
         }
-      }
+
+        .pageNext {
+            position: absolute;
+            width: 75px;
+            height: 54px;
+            left: 50%;
+            margin-right: -37px;
+            bottom: 90px;
+            z-index: 10;
+            @include animation(flash 2s ease-in infinite);
+        }
+
     }
-    .zoo{
-      position: absolute;
-      width: 1040px;
-      height: 755px;
-      left: 50%;
-      top: 65px;
-      margin-left: -520px;
-      .animal{
-        position: absolute;
-        z-index: 1;
-        right: -70px;
-        bottom: 95px;
-      }
+}
+
+.active {
+    .animal {
+        @include animation(bounceInLeft 0.5s ease-in 2s both);
     }
-
-    .pageNext{
-      position: absolute;
-      width: 75px;
-      height: 54px;
-      left: 50%;
-      margin-right: -37px;
-      bottom: 210px;
-      z-index: 10;
-      @include animation(flash 2s ease-in infinite);
+    .zhou {
+        @include animation(fadeIn 1.5s ease-in both);
     }
-
-  }
 }
 
-.active{
-  .animal{
-    @include animation(bounceInLeft 0.5s ease-in 2s both);
-  }
-  .zhou{
-    @include animation(fadeIn 1.5s ease-in both);
-  }
+@include keyframes(flash) {
+    0% {
+        @include transform(translateY(0px));
+        opacity: 0.5;
+    }
+    100% {
+        @include transform(translateY(80px));
+        opacity: 1;
+    }
 }
 
-
-@include keyframes(flash){
-  0%{
-    @include transform(translateY(0px));
-    opacity: 0.5;
-  }
-  100%{
-    @include transform(translateY(80px));
-    opacity: 1;
-  }
+@include keyframes(fadeIn) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
-@include keyframes(fadeIn){
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
-}
-
 
 @include keyframes (bounceInLeft) {
-  from, 60%, 75%, 90%, to {
-    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-  }
+    from, 60%, 75%, 90%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
 
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(-900px, 0, 0);
-    transform: translate3d(-900px, 0, 0);
-  }
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-900px, 0, 0);
+        transform: translate3d(-900px, 0, 0);
+    }
 
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(25px, 0, 0);
-    transform: translate3d(25px, 0, 0);
-  }
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0);
+        transform: translate3d(25px, 0, 0);
+    }
 
-  75% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-    transform: translate3d(-10px, 0, 0);
-  }
+    75% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
 
-  90% {
-    -webkit-transform: translate3d(5px, 0, 0);
-    transform: translate3d(5px, 0, 0);
-  }
+    90% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0);
+    }
 
-  to {
-    -webkit-transform: none;
-    transform: none;
-  }
+    to {
+        -webkit-transform: none;
+        transform: none;
+    }
 }
