@@ -30,7 +30,12 @@
             width: 81px;
             height: 82px;
             background: transparent url("./img/z8.png") no-repeat;
-            z-index: 11;
+            z-index: 20;
+            a{
+                display: block;
+                width: 81px;
+                height: 82px;
+            }
         }
         .yao1 {
             position: absolute;
@@ -53,9 +58,9 @@
         .yao3 {
             position: absolute;
             top: 20px;
-            right: -240px;
-            width: 1295px;
-            height: 734px;
+            right: -80px;
+            width: 853px;
+            height: 732px;
             background: transparent url("./img/z6.png") no-repeat;
             z-index: 8;
         }

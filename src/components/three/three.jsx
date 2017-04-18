@@ -156,7 +156,7 @@ class Three extends Component {
 						<p className="right"><img src={rightImg} alt=""/></p>
 						<div className="tab-b">
 							<div className="three-left">
-								<div className="left-img"><img src={threeR} alt=""/></div>
+								{/*<div className="left-img"><img src={threeR} alt=""/></div>*/}
 								<div className="left-cont">
 									<div className="cont-list">
 										<ul>

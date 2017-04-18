@@ -27,8 +27,8 @@ class One extends Component{
 					<div className="layer layer1" data-depth="0.3">
 						<div className="slogan"></div>
 					</div>
-					<div className="layer layer2" data-depth="0.1">
-						<div className="video"></div>
+					<div className=" layer2" >
+						<div className="video"><a href="javascript:alert('敬请期待')"></a> </div>
 					</div>
 					<div className="layer layer3" data-depth="0.2">
 						<div className="yao1"></div>

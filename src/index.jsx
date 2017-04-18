@@ -21,6 +21,14 @@ import rLogo from "./public/img/z9.png";
 
 import {isMobile} from "./public/public";
 
+let libaoArr = [
+	'<p>预约人数达 20000 全服可获得<br><span>青竹妖宝（价值68元）</span><br>内容：妖石×10 铜币50000</p>',
+	'<p>预约人数达 80000 全服可获得<br><span>碧露妖宝（价值98元）</span><br>内容：宠物洗炼丹×10   优质宠物蛋×5 </p>',
+	'<p>预约人数达 150000 全服可获得<br><span>玄尘妖宝（价值128元）</span><br>内容：2级宝石袋×10 1级宝石袋×15续命丹×20</p>',
+	'<p>预约人数达 300000 全服可获得<br><span>赤金妖宝（价值328元）</span><br>内容：强力紫色防具×1 可使用至30级</p>',
+	'<p>预约人数达 500000 全服可获得<br><span>地婴妖宝（价值648元）</span><br>内容：强力紫色武器×1 可使用至40级</p>',
+	'<p>预约人数达 100000 全服可获得<br><span>天元妖宝（价值998元）</span><br>内容：强力紫色法宝×1 可终身使用</p>'
+]
 
 class App extends Component {
 	constructor() {
@@ -33,6 +41,7 @@ class App extends Component {
 		this.handleTakeList = this.handleTakeList.bind(this);
 		this.handlePicture = this.handlePicture.bind(this);
 		this.handleVideo = this.handleVideo.bind(this);
+		this.libaoHover = this.libaoHover.bind(this);
 		this.state = {
 			off: '',
 			pop: '',
@@ -45,9 +54,10 @@ class App extends Component {
 			dataTextList: {},
 			dataTakeList: {},
 			dataPicture: '',
-			pictureHide:'',
-			videoHide:'',
-			videoUrl:''
+			pictureHide: '',
+			videoHide: '',
+			videoUrl: '',
+			libao: null
 		};
 	}
 	
@@ -72,9 +82,9 @@ class App extends Component {
 			popText: '',
 			takeText: '',
 			shade: '',
-			pictureHide:'',
-			videoHide:'',
-			videoUrl:''
+			pictureHide: '',
+			videoHide: '',
+			videoUrl: ''
 		});
 		$.fn.fullpage.setAllowScrolling(true);
 	}
@@ -100,17 +110,27 @@ class App extends Component {
 	
 	handlePicture(obj) {
 		this.setState({
-			dataPicture:obj,
+			dataPicture: obj,
 			shade: 'on',
-			pictureHide:'on'
+			pictureHide: 'on'
 		})
 	};
-	handleVideo(obj){
+	
+	handleVideo(obj) {
 		this.setState({
-			videoUrl:obj,
+			videoUrl: obj,
 			shade: 'on',
-			videoHide:'on'
+			videoHide: 'on'
 		})
+	}
+	
+	libaoHover(e) {
+		let index = e.target.getAttribute('data-index');
+		this.setState({
+			libao: index
+		})
+		
+		
 	}
 	
 	phoneNum() {
@@ -175,7 +195,7 @@ class App extends Component {
 	componentDidMount() {
 		let This = this;
 		//判断是否手机
-		
+		isMobile();
 		$('#fullpage').fullpage(
 			{
 				sectionsColor:            // 背景色
@@ -284,7 +304,8 @@ class App extends Component {
 		
 	}
 	
-	render() {console.log(this.state.videoUrl)
+	render() {
+		console.log(this.state.libao)
 		let This = this;
 		return (
 			
@@ -327,14 +348,14 @@ class App extends Component {
 					</div>
 				</div>
 				{/*原画*/}
-				<div className={"picture-cont"+' '+this.state.pictureHide}>
+				<div className={"picture-cont" + ' ' + this.state.pictureHide}>
 					<div className="close" onClick={this.handlePopHide}></div>
 					<img src={'http://opm.8864.com' + this.state.dataPicture} alt=""/>
 				</div>
 				{/*视频*/}
-				<div className={"picture-video"+' '+this.state.videoHide}>
+				<div className={"picture-video" + ' ' + this.state.videoHide}>
 					<div className="close" onClick={this.handlePopHide}></div>
-					<video className="video" src={this.state.videoUrl} controls="controls" ></video>
+					<video className="video" src={this.state.videoUrl} controls="controls"></video>
 				</div>
 				
 				<div className="index-box">
@@ -344,10 +365,11 @@ class App extends Component {
 						<div className="box-nav">
 							<p className="yuyue" onClick={this.handlePopShow}><a href="javascript:0;">立即预约</a></p>
 							<p className="wx">
-								<a href="javascript:0;">关注微信</a>
+								<a href="javascript:void (0);">关注微信</a>
 								<span className="bob-wx"><img src={wxT} alt=""/></span>
 							</p>
-							<p className="wb"><a href="javascript:0;">关注微博</a></p>
+							<p className="wb"><a href="#">关注微博</a></p>
+							<p className="bbs"><a href="#">官方论坛</a></p>
 						
 						</div>
 					</div>
@@ -381,13 +403,17 @@ class App extends Component {
 						</div>
 						{
 							This.state.aBox.map(function (item, index) {
+								var active = index == This.state.libao ? 'on' : '';
 								return (
-									<div className={'n-box' + index} key={index}>
-										<p className={ This.state.aBox[index] == true ? 'a-box' + index + ' ' + 'on' : 'a-box' + index }></p>
-										<p className={"min-monster" + index}></p>
-										<p className={'b-box' + index}>
+									<div className={'n-box' + index} key={index} onMouseOver={This.libaoHover}>
+										<p className={ This.state.aBox[index] == true ? 'a-box' + index + ' ' + 'on' : 'a-box' + index }
+										   data-index={index}></p>
+										<p className={"min-monster" + index} data-index={index}></p>
+										<p className={'b-box' + index} data-index={index}>
 											<span></span>
 										</p>
+										<div className={"pop-" + index + ' ' + active }
+										     dangerouslySetInnerHTML={{__html: libaoArr[index]}}></div>
 									</div>
 								)
 							})
@@ -399,7 +425,8 @@ class App extends Component {
 					<div>
 						<div className="section"><One/></div>
 						<div className="section"><Two handleTakeList={this.handleTakeList}/></div>
-						<div className="section"><Four  handlePicture={this.handlePicture} handleVideo={this.handleVideo}/></div>
+						<div className="section"><Four handlePicture={this.handlePicture}
+						                               handleVideo={this.handleVideo}/></div>
 						<div className="section"><Three handleList={this.handleList}/></div>
 					</div>
 					<div></div>

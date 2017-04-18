@@ -473,7 +473,7 @@ em, i {
         background: url("./img/three02.png") no-repeat; }
         #three .three-box .box-tab .tab-b .three-left {
           position: absolute;
-          left: 70px;
+          left: 40px;
           top: 70px;
           width: 555px;
           height: 230px; }
@@ -484,18 +484,18 @@ em, i {
             float: left; }
           #three .three-box .box-tab .tab-b .three-left .left-cont {
             position: relative;
-            width: 365px;
+            width: 505px;
             height: 230px;
             float: right; }
             #three .three-box .box-tab .tab-b .three-left .left-cont .cont-list li {
-              width: 365px;
+              width: 500px;
               line-height: 30px; }
               #three .three-box .box-tab .tab-b .three-left .left-cont .cont-list li a {
                 display: inline-block;
                 color: #593731;
                 font-size: 15px;
                 line-height: 20px;
-                width: 290px;
+                width: 43px;
                 height: 20px;
                 overflow: hidden; }
                 #three .three-box .box-tab .tab-b .three-left .left-cont .cont-list li a:hover {
